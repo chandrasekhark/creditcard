@@ -14,6 +14,7 @@ import com.sapient.creditcard.model.CreditCard;
 import com.sapient.creditcard.service.CreditCardService;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class CreditCardController {
 
 	@Autowired
