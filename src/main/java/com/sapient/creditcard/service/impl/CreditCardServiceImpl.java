@@ -16,6 +16,9 @@ public class CreditCardServiceImpl implements CreditCardService {
 	@Autowired
 	private CreditCardRepository creditCardRepository;
 	
+	/**
+	 * This method will create a new credit card.
+	 */
 	@Override
 	public CreditCard createCreditCard(CreditCard creditCard) {
 		if(validateCreditCard(creditCard.getCardNumber())) {
@@ -27,6 +30,11 @@ public class CreditCardServiceImpl implements CreditCardService {
 		
 	}
 
+	/**
+	 * Here we are checking the entered credit card number is valid. Luhn 10 algorithm logic.
+	 * @param cardNumber
+	 * @return
+	 */
 	private boolean validateCreditCard(Long cardNumber) {
 		String strCardNumber = cardNumber.toString();
 		int[] a = { strCardNumber.toString().length() % 2 == 0 ? 1 : 2 }; // 1 if length even, 2 otherwise

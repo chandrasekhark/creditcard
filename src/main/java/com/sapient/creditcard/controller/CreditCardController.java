@@ -21,11 +21,20 @@ public class CreditCardController {
 	@Autowired
 	private CreditCardService creditCardService;
 	
+	/**
+	 * Create a new create card using this API
+	 * @param creditCard
+	 * @return
+	 */
 	@PostMapping(value = "/creditcard")
 	public ResponseEntity<CreditCard> createCreditCard(@RequestBody CreditCard creditCard) {
 		return new ResponseEntity<CreditCard>(creditCardService.createCreditCard(creditCard), HttpStatus.CREATED);
 	}
 	
+	/**
+	 * Get all the credit cards
+	 * @return
+	 */
 	@GetMapping(value = "/creditcards")
 	public ResponseEntity<List<CreditCard>> getCreditCards() {
 		return new ResponseEntity<List<CreditCard>>(creditCardService.getCreditCards(), HttpStatus.OK);
